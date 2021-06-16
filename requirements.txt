@@ -1,0 +1,3 @@
+Flask==1.1.2
+pandas @ file:///C:/ci/pandas_1602083338010/work
+requests @ file:///tmp/build/80754af9/requests_1592841827918/work

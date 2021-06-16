@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Table - Brand</title>
+    <link rel="stylesheet" href='{{ url_for("static",filename="assets/bootstrap/css/bootstrap.min.css") }}'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark border-light align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="width: 224px;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="material-icons">info_outline</i></div>
+                    <div class="sidebar-brand-text mx-3"><span>TN Covid info</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link bg-primary" href="/" style="width: 220px;"><i class="far fa-sticky-note"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link bg-primary active" href="/table" style="width: 220px;"><i class="fas fa-table"></i><span class="text-light">Other distric details</span></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button></div>
+                </nav>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">TN-DISTRICT INFORMATION</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">DISTRICT INFO</p>
+                        </div>
+                        <div class="card-body">
+                           
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table dataTable my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>District</th>
+                                            <th>Confirmed</th>
+                                            <th>Active</th>
+                                            <th>Recovered</th>
+                                            <th>Deceased</th>
+                                            <th>Vaccined 1st dosage</th>
+                                            <th>Vaccined 2st dosage</th>
+                                            <th>Total Vaccined administered</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in range(TN|length) %}
+                                        <tr>
+                                            <td>{{TN_distic[i]}}</td>
+                                            {% for j in range(TN[i]|length) %}
+                                            <td>{{TN[i,j]}}</td>
+                                            {% endfor %}
+                                            <td>{{vaccine[TN_distic[i]][0]}}</td>
+                                            <td>{{vaccine[TN_distic[i]][1]}}</td>
+                                            <td>{{vaccine[TN_distic[i]][0]+vaccine[TN_distic[i]][1]}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © SK 2021</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src='{{ url_for("static",filename="assets/js/script.min.js") }}'></script>
+</body>
+
+</html>

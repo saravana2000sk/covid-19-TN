@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>COVID 19-TN</title>
+    <link rel="stylesheet" href='{{ url_for("static",filename="assets/bootstrap/css/bootstrap.min.css") }}'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark border-light align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="width: 224px;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="material-icons">info_outline</i></div>
+                    <div class="sidebar-brand-text mx-3"><span>TN Covid info</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link bg-primary active" href="/" style="width: 220px;"><i class="far fa-sticky-note"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link bg-primary" href="/table" style="width: 220px;"><i class="fas fa-table"></i><span class="text-light">Other distric details</span></a></li>
+                    <li class="nav-item" role="presentation"></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="bg-primary" style="height: 100px;">
+                        <h1 class="text-center text-light" style="padding: 20px;">COVID 19 TAMIL NADU</h1>
+                    </div>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3></div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-danger font-weight-bold text-xs mb-1"><span>CONFIRMED CASES</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span class="text-center">{{confirmedcases}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>ACTIVE CASES</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span class="text-center">{{activecases}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-black-50 font-weight-bold text-xs mb-1"><span>DEATH</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><span>{{death}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-info py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>RECOVERED</span></div>
+                                            
+                                                <div class="text-dark font-weight-bold h5 mb-0"><span>{{recovered}}</span></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-info py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Vaccine administered in chennai</span></div>
+                                            
+                                                <div class="text-dark font-weight-bold h5 mb-0"><span>{{vacinchennai}}</span></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-left-warning py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1" style="width: 265px;height: 24px;"><span>VACCINE administered</span></div>
+                                            <div class="text-dark font-weight-bold h5 mb-0" style="width: 265px;"><span>{{vacad}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">DAILY VACCINE REPORT-CHENNAI</h6>
+                                    
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;{{date[0]}}&quot;,&quot;{{date[1]}}&quot;,&quot;{{date[2]}}&quot;,&quot;{{date[3]}}&quot;,&quot;{{date[4]}}&quot;,&quot;{{date[5]}}&quot;,&quot;{{date[6]}}&quot;,&quot;{{date[7]}}&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Vaccinated&quot;,&quot;fill&quot;:true,&quot;data&quot;:[&quot;{{vacc[0]}}&quot;,&quot;{{vacc[1]}}&quot;,&quot;{{vacc[2]}}&quot;,&quot;{{vacc[3]}}&quot;,&quot;{{vacc[4]}}&quot;,&quot;{{vacc[5]}}&quot;,&quot;{{vacc[6]}}&quot;,&quot;{{vacc[7]}}&quot;],&quot;backgroundColor&quot;:&quot;rgba(78, 115, 223, 0.05)&quot;,&quot;borderColor&quot;:&quot;rgba(78, 115, 223, 1)&quot;}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-xl-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary font-weight-bold m-0">VACCINE PIE-CHART</h6>
+                                   
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Total vaccinated&quot;,&quot;Chennai&quot;,&quot;Other district&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;{{totalvacc}}&quot;,&quot;{{chevacc}}&quot;,&quot;{{otherdisvacc}}&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                                    <div
+                                        class="text-center small mt-4"><span class="mr-2"><i class="fas fa-circle text-primary"></i>&nbsp;Total vaccinated</span><span class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Chennai</span><span class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;Other District</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 mb-4" style="width: 700px;">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="text-primary font-weight-bold m-0">Total population-7,56,95,000</h6>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="small font-weight-bold">Confirmed Per Lakh<span class="float-right">{{conperlak}}</span></h4>
+                                <div class="progress mb-4">
+                                    <div class="progress-bar bg-danger" aria-valuenow="{{conperlakpec}}" aria-valuemin="0" aria-valuemax="100" style="width: {{conperlakpec}}%;"><span class="sr-only">{{conperlakpec}}</span></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Active ratio<span class="float-right">{{actrio}} %</span></h4>
+                                <div class="progress mb-4">
+                                    <div class="progress-bar bg-warning" aria-valuenow="{{actrio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{actrio}}%;"><span class="sr-only">{{actrio}}</span></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Recover Ratio<span class="float-right">{{recrio}} %</span></h4>
+                                <div class="progress mb-4">
+                                    <div class="progress-bar bg-success" aria-valuenow="{{recrio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{recrio}}%;"><span class="sr-only">{{recrio}}</span></div>
+                                </div>
+                                <h4 class="small font-weight-bold">Case fatality Ratio<span class="float-right">{{casfatalrio}} %</span></h4>
+                                <div class="progress mb-4">
+                                    <div class="progress-bar bg-secondary" aria-valuenow="{{casfatalrio}}" aria-valuemin="0" aria-valuemax="100" style="width: {{casfatalrio}}%;"><span class="sr-only">{{casfatalrio}}</span></div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © SK 2021</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src='{{ url_for("static",filename="assets/js/script.min.js") }}'></script>
+</body>
+
+</html>
